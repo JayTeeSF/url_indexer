@@ -1,5 +1,5 @@
 // Insert the CLIENT_ID and SCOPES here as mentioned previously
-const CLIENT_ID = '802776115433-kaf3ueea1285n91otj726986dvppqfdq.apps.googleusercontent.com';
+const CLIENT_ID = '802776115433-shtid7nbe1linnrtp37fhifdirvov9a1.apps.googleusercontent.com'
 const SCOPES = 'https://www.googleapis.com/auth/indexing https://www.googleapis.com/auth/webmasters.readonly';
 
 // Function to start the authentication process
@@ -7,7 +7,7 @@ function authenticateUser() {
   var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
   var params = {
     'client_id': CLIENT_ID,
-    'redirect_uri': 'YOUR_REDIRECT_URI',
+    'redirect_uri': 'https://jayteesf.github.io/url_indexer/oauth2callback',
     'response_type': 'token',
     'scope': SCOPES,
     'include_granted_scopes': 'true',
@@ -19,6 +19,17 @@ function authenticateUser() {
   }).join('&');
   
   window.open(oauth2Endpoint + '?' + queryString, 'name', 'width=600,height=400');
+}
+
+function checkForOAuthToken() {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+        // You have a token, proceed with your API requests or application logic
+        console.log('Token found in storage:', token);
+    } else {
+        // No token found, you may need to authenticate
+        console.log('No token found, need to authenticate.');
+    }
 }
 
 // Function to extract the access token from the URL fragment
@@ -81,3 +92,6 @@ document.getElementById('process-urls').addEventListener('click', processUrls);
 
 // On load, check if redirected with an access token
 handleOAuth2Redirect();
+
+// Run this check on page load or when you need to make an API request
+checkForOAuthToken();
