@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Processing App</title>
+    <!-- Add additional meta tags and CSS links here -->
+</head>
+<body>
+    <header>
+        <h1>URL Inspection & Indexing Tool</h1>
+        <button id="authenticate">Sign In with Google</button>
+    </header>
+    
+    <main>
+        <section id="url-list">
+            <h2>URLs to Process</h2>
+            <ul>
+                <!-- Dynamically generated list of URLs will go here -->
+            </ul>
+            <button id="process-urls">Process Selected URLs</button>
+        </section>
+
+        <section id="url-details" style="display:none;">
+            <h2>URL Details</h2>
+            <!-- Details about a specific URL will be displayed here -->
+            <!-- Include a back button to return to the main list -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 URL Processing App</p>
+    </footer>
+
+    <script src="app.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
